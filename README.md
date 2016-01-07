@@ -1,4 +1,4 @@
-#PHP SANDBOX
+#PHP OOP SANDBOX
 
 A place to experiment with PHP as a language.  
 
