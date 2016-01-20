@@ -7,7 +7,7 @@
 * 3. Add UI Header
 */
 
-include_once("head.php");
+include_once("views/core/head.php");
 ?>
 <body class="container-fluid">
     <header class="row">

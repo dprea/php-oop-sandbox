@@ -3,8 +3,6 @@
 * A Simple Sandbox for understanding classes and objects in PHP 
 */ 
 
-// include_once("views/partials/core/layout.php");
-
 class DreaSandbox {
     
     private $template_layout;
@@ -15,12 +13,6 @@ class DreaSandbox {
         
         // Load Dependencies
         $this->load_dependencies();
-        
-        // Get Base Template
-        $this->get_template_layout();
-        
-        $this->router = new DreaRouter();
-        
     }
     
     public function load_dependencies() {
@@ -28,15 +20,21 @@ class DreaSandbox {
     }
     
     public function get_template_layout() {
-        require_once("views/core/layout.php");
+        include_once("views/core/header.php");
+        
+        // Router Init
+        $this->router = new DreaRouter();
+        
+        include_once("views/core/footer.php");
     }
     
-    
+    public function get_data_manipulated() {
+        $dataArr = [0, 1, 2, 3, 4, 5, 6, 7];
+        
+    }
 }
 
 $DreaSandbox = new DreaSandbox();
 $DreaSandbox->get_template_layout();
-
-
 
 ?>

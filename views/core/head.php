@@ -12,5 +12,5 @@
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-	<link rel="stylesheet" type="text/stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" type="text/stylesheet" href="/assets/css/style.css" />
 </head>
