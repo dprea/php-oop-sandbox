@@ -1,6 +1,9 @@
 <?php
 /**
 * A PHP Factory for Creating Adwords Campaign Groups
+* 
+* TODO: Change class->adgroups to ->adgroupTemplates then parse templates
+* --------------------------------------------------------------------
 */ 
 
 class DreaFactory {
@@ -37,7 +40,12 @@ class DreaFactory {
 			"Zionsville"
 		];
 		
-		$this->campaignGroupList = $this->create_campaign_group($this->campaignGroupName, $this->locations, $this->adgroups, $this->keywords);
+		$this->campaignGroupList = $this->create_campaign_group(
+		    $this->campaignGroupName, 
+		    $this->locations,
+		    $this->adgroups, 
+		    $this->keywords
+	    );
     }
     
     public function get_locations() {
@@ -62,7 +70,7 @@ class DreaFactory {
                 "adgroups" => []
             ];
             
-            // TODO: Create and Add the Adgroups to the campaignGroup["campaigns"]["adgroups"]
+            // Create and Add the Adgroups to the campaignGroup["campaigns"]["adgroups"]
             for($h = 0; $h < count($campaignGroup["keywords"]); $h++) {
                 $campaignGroup["campaigns"][$i]["adgroups"][$h] = [
                     "name" => $campaignGroup["keywords"][$h], // Needs to loop all keywords
@@ -77,6 +85,6 @@ class DreaFactory {
         
         // Send Back the Output
         return $campaignGroup;
-    }
-    
-}
+    } // End function create_campaign_group
+
+} // End of class
