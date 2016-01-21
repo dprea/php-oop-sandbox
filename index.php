@@ -17,6 +17,7 @@ class DreaSandbox {
     
     public function load_dependencies() {
         require_once("server/router.php");
+        require_once("server/factory.php");
     }
     
     public function get_template_layout() {
@@ -25,6 +26,13 @@ class DreaSandbox {
         // Router Init
         $this->router = new DreaRouter();
         
+        // Factory Init
+        $this->campaignFactory = new DreaFactory();
+        $campaignGroupOutput = $this->campaignFactory->campaignGroupList;
+       
+        echo '<pre>' . var_export($campaignGroupOutput, true) . '</pre>';
+        
+        //$locationList = $this->campaignFactory->get_locations();
         include_once("views/core/footer.php");
     }
     
