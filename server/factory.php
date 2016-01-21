@@ -1,8 +1,6 @@
 <?php
 /**
 * A PHP Factory for Creating Adwords Campaign Groups
-* 
-* TODO: Change class->adgroups to ->adgroupTemplates then parse templates
 * --------------------------------------------------------------------
 */ 
 
@@ -15,12 +13,29 @@ class DreaFactory {
     private $keywords;
     private $locations; // Array of Lists Passed In
     
+    public $campaignGroupList;
+    
+    
+    /**
+    * Campaign Groups Consist of a List of Campaigns
+    * 
+    * 1. New CampaignGroup
+    * 2. New CampaignGroup->Campaign
+    * 3. Campaign Factory uses CampaignGroup keywords to generate AdGroups
+    * 4. Keyword Lists are created with Keyword Templates 
+    * 5. TODO: Add Base / Plural (isPlural?) 
+    * 6. Keyword Templates are currently crated by combining location and keyword
+    * 7. Adgroups are made for each Campaigngroup Keyword
+    * 8. The Adgroup contains the list of keywords created from the keyword templates
+    * 9. The Location is added to the campaign.
+    * 10. TODO: Add Ad Sets with Landing page URLS
+    */ 
     public function __construct() {
         $this->prefix = "Tav_";
         $this->suffix = "_#3"; // Backslash Escape Underscore
         $this->campaignGroupName = "Location Eye Doctor";
-        $this->adgroups = ["Location Keyword", "Keyword Location", "Keyword"];
-        $this->keywords = ["Eye Doctor", "Eye Exam"];
+        $this->keywordTemplates = ["Location Keyword", "Keyword Location", "Keyword"];
+        $this->keywords = ["Eye Doctor", "Eye Exam", "Vision Care", "HIP", "Medicaid"];
         $this->locations = [
             "Indianapolis",
 			"Indy",
@@ -43,7 +58,7 @@ class DreaFactory {
 		$this->campaignGroupList = $this->create_campaign_group(
 		    $this->campaignGroupName, 
 		    $this->locations,
-		    $this->adgroups, 
+		    $this->keywordTemplates, 
 		    $this->keywords
 	    );
     }
@@ -52,11 +67,17 @@ class DreaFactory {
         return $this->locations;
     }
     
-    public function create_campaign_group($cGroupName, $cGroupLocations, $cGroupAdgroups, $cGroupKeywords) {
+    public function get_campaign_group_list() {
+        //echo "Dumping factory->get_campaign_group_list <br />";
+        //var_dump($this->campaignGroupList);
+        return $this->campaignGroupList;
+    }
+    
+    public function create_campaign_group($cGroupName, $cGroupLocations, $cGroupKeywordTemplates, $cGroupKeywords) {
         $campaignGroup = [
             "name" => $cGroupName, 
             "locations" => $cGroupLocations, 
-            "adgroups" => $cGroupAdgroups, 
+            "keywordTemplates" => $cGroupKeywordTemplates, 
             "keywords" => $cGroupKeywords,
             "campaigns" => []
         ];
