@@ -10,8 +10,8 @@ class DreaRouter {
     
     public function __construct() {
         // Route Comparison Variables
-        $this->reqRoute = "";
-        $this->routes = ["home", "about"];
+        $this->reqRoute = isset($_SREVER['REQUEST_URI']);
+        $this->routes = ["home", "about", "factory", "ui"];
         
         // URL Handler Functions
         $this->handle_URL_route($this->routes, $this->reqRoute);
@@ -38,7 +38,7 @@ class DreaRouter {
         }
         
         for($x =0; $x<count($routes); $x++) {
-            if($reqRoute == $routes[$x]) {
+            if($reqRoute === $routes[$x]) {
                 // TODO: Create Getter Function
                 include_once("views/core/$reqRoute.php");
                 break; // Once the route is found, no reason to continue looping.
@@ -59,5 +59,9 @@ class DreaRouter {
         //   has not been stripped.
         //$reqRoute = explode('/', $reqRouteDebugVar);
         //echo '2. '; var_dump($reqRouteDebugVar); echo '<br />';
+    }
+    
+    public function get_reqRoute() {
+        return $this->reqRoute;
     }
 }

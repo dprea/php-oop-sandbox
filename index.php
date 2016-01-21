@@ -27,18 +27,7 @@ class DreaSandbox {
         // Router Init
         $this->router = new DreaRouter();
         
-        // Factory Init
-        $this->campaignFactory = new DreaFactory();
-        $campaignGroupOutput = $this->campaignFactory->get_campaign_group_list();
-        
-        //echo '1. <pre>' . var_export($campaignGroupOutput, true) . '</pre>';
-        
-        $this->campaignTemplateFactory = new DreaTemplateFactory($campaignGroupOutput);
-        //$this->campaignTemplateFactory->create_campaign_template($campaignGroupOutput);
-        
-        //echo '2. <pre>' . var_export($campaignGroupOutput, true) . '</pre>';
-        
-        //$locationList = $this->campaignFactory->get_locations();
+        //$locationList = $this->campaignFactory->get_locations(); // DEBUG
         include_once("views/core/footer.php");
     }
     
