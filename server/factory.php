@@ -72,8 +72,6 @@ class DreaFactory {
                         $campaignGroup["keywords"][$h]
                     ]
                 ];
-                
-                
             } // End Adgroup Creation For Loop
         } // End Top Level For Loop
         
