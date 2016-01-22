@@ -1,3 +1,10 @@
+<?php
+/**
+* User(Admin Facing) Display of the campaign groups after
+*   generation by seeding dummy data.
+* --------------------------------------------------------------------------
+*/
+?>
 <section class="row">
     <h1 class="col-xs-offset-1 col-xs-10">Factory</h1>
     <div class="col-xs-offset-1 col-xs-10">

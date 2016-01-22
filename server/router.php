@@ -21,6 +21,7 @@ class DreaRouter {
         if (isset($_SERVER['REQUEST_URI']))  {
             $reqRouteDebug = false; // Disable Debugging
             
+            // Set the Requested Route
             $reqRoute = $_SERVER['REQUEST_URI'];
             
             if($reqRouteDebug == true) {
@@ -32,6 +33,7 @@ class DreaRouter {
             // Remove Trailing Whitespace
             $reqRoute = trim($reqRoute);
             
+            // Try to default to the Home Route
             if($reqRoute == "" || $reqRoute == "index.php") {
                 $reqRoute = "home";
             }

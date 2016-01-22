@@ -11,6 +11,7 @@ class DreaFactory {
     private $campaignGroupName;
     private $adgroups;
     private $keywords;
+    private $keywordModifiers;
     private $locations; // Array of Lists Passed In
     
     public $campaignGroupList;
@@ -33,12 +34,13 @@ class DreaFactory {
     public function __construct() {
         $this->prefix = "Tav_";
         $this->suffix = "_#3"; // Backslash Escape Underscore
-        $this->campaignGroupName = "Location Eye Doctor";
+        $this->campaignGroupName = "Locations";
         $this->keywordTemplates = ["Location Keyword", "Keyword Location", "Keyword"];
         $this->keywords = ["Eye Doctor", "Eye Exam", "Vision Care", "HIP", "Medicaid"];
+        $this->keywordModifiers = ["in"];  // $keywordModifiers;
         $this->locations = [
-            "Indianapolis",
-			"Indy",
+            "Indianapolis", 
+            "Indy",
 			"Anderson",
 			"Bloomington",
 			"Columbus",
@@ -59,7 +61,8 @@ class DreaFactory {
 		    $this->campaignGroupName, 
 		    $this->locations,
 		    $this->keywordTemplates, 
-		    $this->keywords
+		    $this->keywords,
+		    $this->keywordModifiers
 	    );
     }
     
@@ -73,17 +76,19 @@ class DreaFactory {
         return $this->campaignGroupList;
     }
     
-    public function create_campaign_group($cGroupName, $cGroupLocations, $cGroupKeywordTemplates, $cGroupKeywords) {
+    public function create_campaign_group($cGroupName, $cGroupLocations, $cGroupKeywordTemplates, $cGroupKeywords, $cGroupKeywordModifiers) {
         $campaignGroup = [
             "name" => $cGroupName, 
             "locations" => $cGroupLocations, 
             "keywordTemplates" => $cGroupKeywordTemplates, 
             "keywords" => $cGroupKeywords,
+            "keywordModifiers" => $cGroupKeywordModifiers,
             "campaigns" => []
         ];
         
         // Generate Campaigns
         // 1. name = Prefix + each location + Suffix
+        // TODO: Refactor to loop keyword modifiers. 
         for($i = 0; $i < count($campaignGroup["locations"]); $i++) {
             $campaignGroup["campaigns"][$i] = [
                 "name" => $this->prefix . $campaignGroup["locations"][$i] . $this->suffix, 
@@ -96,9 +101,11 @@ class DreaFactory {
                 $campaignGroup["campaigns"][$i]["adgroups"][$h] = [
                     "name" => $campaignGroup["keywords"][$h], // Needs to loop all keywords
                     "keywords" => [
-                        $campaignGroup["locations"][$i] . " " . $campaignGroup["keywords"][$h], 
+                        $campaignGroup["locations"][$i] . " " . $campaignGroup["keywords"][$h],
                         $campaignGroup["keywords"][$h] . " " . $campaignGroup["locations"][$i], 
-                        $campaignGroup["keywords"][$h]
+                        $campaignGroup["keywords"][$h] . " " . $campaignGroup["keywordModifiers"][0] . " " . $campaignGroup["locations"][$i], 
+                        $campaignGroup["keywords"][$h],
+                        "Modifier " . $campaignGroup["keywordModifiers"][0]
                     ]
                 ];
             } // End Adgroup Creation For Loop

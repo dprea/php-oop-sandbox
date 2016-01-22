@@ -33,7 +33,6 @@ class DreaSandbox {
     
     public function get_data_manipulated() {
         $dataArr = [0, 1, 2, 3, 4, 5, 6, 7];
-        
     }
 }
 
