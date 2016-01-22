@@ -2,6 +2,8 @@
 /**
 * Public Facing Form to get Campaign Group Info
 * --------------------------------------------------------------------------
+* TODO: Add Keyword Template Inputs. 
+* --------------------------------------------------------------------------
 */
 ?>
 
@@ -87,9 +89,9 @@
     							$keywordTemplateOptions = array(
     					            "Location",
     					            "Keyword",
-    					            "Delimiter1",
-    					            "Delimiter2",
-    					            "Delimiter3",
+    					            "Modifier1",
+    					            "Modifier2",
+    					            "Modifier3",
     					            "none"
     							);
     							
