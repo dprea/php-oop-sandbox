@@ -34,7 +34,6 @@
                         <p>Added to the end of every campaign</p>
                     </div>
                 </div>
-    			
             </div>
             <div class="row">
                 <div class="col-md-12 form-group form-inline">
