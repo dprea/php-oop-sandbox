@@ -43,12 +43,12 @@
 							);
 						?>
                        <select class="form-control" type="text" name="field-campaign-group-campaign-name-mod" placeholder="What is the first Keyword Template?">
-                                 <?php
-        							foreach($campaignNameMods as $cgNameMod) {
-        							   echo '<option>' . $cgNameMod . '</option>';
-        							}
-        						?>
-                                </select>
+                            <?php
+    							foreach($campaignNameMods as $cgNameMod) {
+    							   echo '<option value="'. $cgNameMod . '">' . $cgNameMod . '</option>';
+    							}
+    						?>
+                        </select>
                         <p>Modifier for each Campaign Name</p>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
 							);
 							echo "<div class='row'>";
 							foreach($locationListOptions as $loc) {
-							   echo '<div class="col-xs-2"><input type="checkbox" name="field-campaign-location" value="'. $loc . '"> ' . $loc . '</div>';
+							   echo '<div class="col-xs-2"><input type="checkbox" name="field-campaign-location[]" value="'. $loc . '"> ' . $loc . '</div>';
 							}
 							echo "</div>";
 						?>
@@ -144,7 +144,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -154,7 +154,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -164,7 +164,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -174,7 +174,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -184,7 +184,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -194,7 +194,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-1-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -211,7 +211,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -221,7 +221,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -231,7 +231,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -241,7 +241,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -251,7 +251,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -261,7 +261,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-2-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -278,7 +278,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -288,7 +288,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -298,7 +298,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -308,7 +308,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -318,7 +318,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -328,7 +328,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-3-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -345,7 +345,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -355,7 +355,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -365,7 +365,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -375,7 +375,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -385,7 +385,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -395,7 +395,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-4-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -412,7 +412,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -422,7 +422,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -432,7 +432,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -442,7 +442,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -452,7 +452,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -462,7 +462,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-5-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -479,7 +479,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>1</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-1" placeholder="What is the first Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -489,7 +489,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>2</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-2" placeholder="What is the second Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -499,7 +499,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>3</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-3" placeholder="What is the third Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -509,7 +509,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>4</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-4" placeholder="What is the fourth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -519,7 +519,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>5</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-5" placeholder="What is the fifth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}
@@ -529,7 +529,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><label>6</label></span>
                                 <select class="form-control" type="text" name="field-campaign-group-keyword-template-6-6" placeholder="What is the sixth Keyword Template?">
-                                 <?php
+                                <?php
         							foreach($keywordTemplateOptions as $kwVar) {
         							   echo '<option>' . $kwVar . '</option>';
         							}

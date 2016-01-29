@@ -6,18 +6,17 @@
 
 class DreaFactoryInput {
     
-    private $prefix;
-    private $suffix;
-    private $campaignGroupName;
-    private $campaignNameMod;
-    private $adgroups;
-    private $keywords;
-    private $keywordModifiers;
-    private $locations; // Array of Lists Passed In
-    private $keywordTemplates;
-    private $keywordTemplateCount;
+    public $prefix;
+    public $suffix;
+    public $campaignGroupName;
+    public $campaignNameMod;
+    public $adgroups;
+    public $keywords;
+    public $keywordModifiers;
+    public $locations; // Array of Lists Passed In
+    public $keywordTemplates;
+    public $keywordTemplateCount;
     public $campaignGroupList;
-    
     
     /**
     * Campaign Groups Consist of a List of Campaigns
@@ -34,18 +33,19 @@ class DreaFactoryInput {
     * 10. TODO: Add Ad Sets with Landing page URLS
     */ 
     public function __construct($cgInput) {
+
         // Campaign Group Meta Information
-        $this->campaignGroupName = $cgInput->campaignGroupName;
-        $this->prefix = $cgInput->campaignGroupPrefix;
-        $this->suffix = $cgInput->campaignGroupSuffix;
+        $this->campaignGroupName = $cgInput["campaignGroupName"];
+        $this->prefix = $cgInput["campaignGroupPrefix"];
+        $this->suffix = $cgInput["campaignGroupSuffix"];
         
-        $this->campaignNameMod = $cgInput->campaignNameMod;
+        $this->campaignNameMod = $cgInput["campaignNameMod"];
         
         // Which Locations apply to the Campaign Group
-        $this->locations = $cgInput->campaignLocation;
+        $this->locations = $cgInput["campaignLocation"];
         
         // Base Keywords
-        $this->keywords = $cgInput->campaignGroupKeywords;
+        $this->keywords = $cgInput["campaignGroupKeywords"];
         
         // Prepare the Keywords for Generation
         // Trim White Space
@@ -54,9 +54,9 @@ class DreaFactoryInput {
         }
         
         // Keyword Modifiers
-        $this->keywordModifiers = $cgInput->campaignKeywordMods; 
+        $this->keywordModifiers = $cgInput["campaignKeywordMods"]; 
         // Keyword Templates
-        $this->keywordTemplates = $cgInput->campaignKeywordTemplates;
+        $this->keywordTemplates = $cgInput["campaignKeywordTemplates"];
         // Cache the KW Template Count to avoid recalculation on each loop.
         $this->keywordTemplateCount = count($this->keywordTemplates);
 		
@@ -83,7 +83,7 @@ class DreaFactoryInput {
         return $this->campaignGroupList;
     }
     
-    public function create_campaign_group($cGroupName, $cGroupNameMod, $cGroupLocations, $cGroupKeywordTemplates, $cGroupKeywords, $cGroupKeywordModifiers) {
+    public function create_campaign_group($cGroupName, $cGroupNameMod, $cGroupLocations, $cGroupKeywords, $cGroupKeywordModifiers, $cGroupKeywordTemplates) {
         $campaignGroup = [
             "name" => $cGroupName, 
             "locations" => $cGroupLocations, 
@@ -100,7 +100,7 @@ class DreaFactoryInput {
                 // Below, $cGroupNameMod is Most likely Locations
                 // In that case, there is a location for each $i
                 // Imagine other use cases where this wont work. 
-                "name" => $this->prefix . $campaignGroup[$cGroupNameMod][$i] . $this->suffix, 
+                "name" => $this->prefix . $cGroupNameMod . $this->suffix, 
                 // Needs to be passed to generateKeywordList
                 "location" => $campaignGroup["locations"][$i],  
                 "adgroups" => []
@@ -109,14 +109,13 @@ class DreaFactoryInput {
             // Create and Add the Adgroups to the campaignGroup["campaigns"]["adgroups"]
             for($h = 0; $h < count($campaignGroup["keywords"]); $h++) {
                 
-                
                 // TODO: Refactor this block into a function called for each Campaign Group Keyword Set
                 //   $thisLoopIteration = $campaignGroup["keywords"]);
                 //   Function Name: generatorKeywordList($ThisLoopIteration)
                 
-                $adgroupKeywordList = generateKeywordList(
-                    $campaignGroup["keywords"][$h], 
-                    $campaignGroup["locations"][$i], 
+                $adgroupKeywordList = $this->generateKeywordList(
+                    $campaignGroup["keywords"], 
+                    $campaignGroup["campaigns"][$i]["location"], 
                     $campaignGroup["keywordModifiers"] 
                 );
                 
@@ -132,10 +131,13 @@ class DreaFactoryInput {
     } // End function create_campaign_group
     
     
-    // Returns an Array of Keywords
-    // @param - $adgroupKeyword - The Adgroup Keyword to generate variations
-    // @param - $adgroupLocation - The Adgroup Location for this keyword
-    // @param - $adgroupKeywordMods Array[] - The list of possible Keyword Modifications
+    /**
+    * Returns an Array of Keywords
+    * 
+    * @param - $adgroupKeyword - The Adgroup Keyword to generate variations
+    * @param - $adgroupLocation - The Adgroup Location for this keyword
+    * @param - $adgroupKeywordMods Array[] - The list of possible Keyword Modifications
+    */
     public function generateKeywordList($adgroupKeyword, $adgroupLocation, $adgroupKeywordMods) {
         // KeywordBuilder is for building the Output of each Keyword from a KW Template
         $keywordBuilder = "";
@@ -148,8 +150,8 @@ class DreaFactoryInput {
             $keywordBuilder = "";
             
             // Check type of each value and replace with proper KW or KW Mod
-            for($kwtv = 0; $kwtv < count($this->keywordTemplate[$kwt]); $kwtv++) {
-                switch($this->keywordTemplate[$kwt][$kwtv]) {
+            for($kwtv = 0; $kwtv < count($this->keywordTemplates[$kwt]); $kwtv++) {
+                switch($keywordTemplate[$kwt][$kwtv]) {
                     case "Keyword":
                         $keywordBuilder = $keywordBuilder . $adgroupKeyword . " ";
                         break;
@@ -157,23 +159,23 @@ class DreaFactoryInput {
                         $keywordBuilder = $keywordBuilder . $adgroupLocation . " "; 
                         break;
                     case "Modifier 1":
-                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[0] . " "; 
+                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[0]["campaignKeywordMod1"] . " "; 
                         break;
                     case "Modifier 2":
-                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[1] . " "; 
+                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[0]["campaignKeywordMod2"] . " "; 
                         break;
                     case "Modifier 3":
-                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[2] . " ";  
+                        $keywordBuilder = $keywordBuilder . $adgroupKeywordMods[0]["campaignKeywordMod3"] . " ";  
                         break;
                     case "none": 
                         break;
                     default: 
                         break;
                 } // End Switch Case
+                
+                // Add the Keyword that was built to the output list
+                $keywordListOutput[$kwt] = $keywordBuilder;
             } // End Keyword Builder Loop
-            
-            // Add the Keyword that was built to the output list
-            $keywordListOutput[$kwt] = $keywordBuilder;
             
         } // End Keyword Template Loop
         

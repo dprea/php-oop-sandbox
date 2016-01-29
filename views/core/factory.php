@@ -31,47 +31,54 @@
             
             // Campaign Keyword Templates
             campaignKeywordTemplates => [
-                campaignKeywordTemplate1 => $_POST['field-campaign-group-keyword-template-1-1'] .
-                    $_POST['field-campaign-group-keyword-template-1-2'] .
-                    $_POST['field-campaign-group-keyword-template-1-3'] .
-                    $_POST['field-campaign-group-keyword-template-1-4'] .
-                    $_POST['field-campaign-group-keyword-template-1-5'] . 
+                campaignKeywordTemplate1 => [
+                    $_POST['field-campaign-group-keyword-template-1-1'],
+                    $_POST['field-campaign-group-keyword-template-1-2'],
+                    $_POST['field-campaign-group-keyword-template-1-3'],
+                    $_POST['field-campaign-group-keyword-template-1-4'],
+                    $_POST['field-campaign-group-keyword-template-1-5'], 
                     $_POST['field-campaign-group-keyword-template-1-6'],
-                    
-                campaignKeywordTemplate2 => $_POST['field-campaign-group-keyword-template-2-1'] .
-                    $_POST['field-campaign-group-keyword-template-2-2'] .
-                    $_POST['field-campaign-group-keyword-template-2-3'] .
-                    $_POST['field-campaign-group-keyword-template-2-4'] .
-                    $_POST['field-campaign-group-keyword-template-2-5'] . 
+                ] ,   
+                campaignKeywordTemplate2 => [
+                    $_POST['field-campaign-group-keyword-template-2-1'],
+                    $_POST['field-campaign-group-keyword-template-2-2'],
+                    $_POST['field-campaign-group-keyword-template-2-3'],
+                    $_POST['field-campaign-group-keyword-template-2-4'],
+                    $_POST['field-campaign-group-keyword-template-2-5'], 
                     $_POST['field-campaign-group-keyword-template-2-6'],
-                
-                campaignKeywordTemplate3 => $_POST['field-campaign-group-keyword-template-3-1'] .
-                    $_POST['field-campaign-group-keyword-template-3-2'] .
-                    $_POST['field-campaign-group-keyword-template-3-3'] .
-                    $_POST['field-campaign-group-keyword-template-3-4'] .
-                    $_POST['field-campaign-group-keyword-template-3-5'] . 
+                ],
+                campaignKeywordTemplate3 => [
+                    $_POST['field-campaign-group-keyword-template-3-1'],
+                    $_POST['field-campaign-group-keyword-template-3-2'],
+                    $_POST['field-campaign-group-keyword-template-3-3'],
+                    $_POST['field-campaign-group-keyword-template-3-4'],
+                    $_POST['field-campaign-group-keyword-template-3-5'], 
                     $_POST['field-campaign-group-keyword-template-3-6'],
-                    
-                campaignKeywordTemplate4 => $_POST['field-campaign-group-keyword-template-4-1'] .
-                    $_POST['field-campaign-group-keyword-template-4-2'] .
-                    $_POST['field-campaign-group-keyword-template-4-3'] .
-                    $_POST['field-campaign-group-keyword-template-4-4'] .
-                    $_POST['field-campaign-group-keyword-template-4-5'] . 
+                ],    
+                campaignKeywordTemplate4 => [
+                    $_POST['field-campaign-group-keyword-template-4-1'],
+                    $_POST['field-campaign-group-keyword-template-4-2'],
+                    $_POST['field-campaign-group-keyword-template-4-3'],
+                    $_POST['field-campaign-group-keyword-template-4-4'],
+                    $_POST['field-campaign-group-keyword-template-4-5'],
                     $_POST['field-campaign-group-keyword-template-4-6'],
-                    
-                campaignKeywordTemplate5 => $_POST['field-campaign-group-keyword-template-5-1'] .
-                    $_POST['field-campaign-group-keyword-template-5-2'] .
-                    $_POST['field-campaign-group-keyword-template-5-3'] .
-                    $_POST['field-campaign-group-keyword-template-5-4'] .
-                    $_POST['field-campaign-group-keyword-template-5-5'] . 
+                ],
+                campaignKeywordTemplate5 => [
+                    $_POST['field-campaign-group-keyword-template-5-1'],
+                    $_POST['field-campaign-group-keyword-template-5-2'],
+                    $_POST['field-campaign-group-keyword-template-5-3'],
+                    $_POST['field-campaign-group-keyword-template-5-4'],
+                    $_POST['field-campaign-group-keyword-template-5-5'], 
                     $_POST['field-campaign-group-keyword-template-5-6'],
-                    
-                campaignKeywordTemplate6 => $_POST['field-campaign-group-keyword-template-6-1'] .
-                    $_POST['field-campaign-group-keyword-template-6-2'] .
-                    $_POST['field-campaign-group-keyword-template-6-3'] .
-                    $_POST['field-campaign-group-keyword-template-6-4'] .
-                    $_POST['field-campaign-group-keyword-template-6-5'] . 
+                ],
+                campaignKeywordTemplate6 => [
+                    $_POST['field-campaign-group-keyword-template-6-1'],
+                    $_POST['field-campaign-group-keyword-template-6-2'],
+                    $_POST['field-campaign-group-keyword-template-6-3'],
+                    $_POST['field-campaign-group-keyword-template-6-4'],
+                    $_POST['field-campaign-group-keyword-template-6-5'], 
                     $_POST['field-campaign-group-keyword-template-6-6'],
+                ]
             ]
         ];
         
