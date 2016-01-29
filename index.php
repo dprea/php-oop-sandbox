@@ -18,6 +18,7 @@ class DreaSandbox {
     public function load_dependencies() {
         require_once("server/router.php");
         require_once("server/factory.php");
+        require_once("server/factory_input.php");
         require_once("server/factory_template.php");
     }
     

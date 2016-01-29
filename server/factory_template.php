@@ -50,5 +50,4 @@ class DreaTemplateFactory {
         return $campaignGroupOutput;
         
     } // End Function create_campaign_template
-    
 } // End Class
